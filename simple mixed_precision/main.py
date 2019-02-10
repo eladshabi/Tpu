@@ -55,7 +55,7 @@ if __name__ == '__main__':
         data, target, loss = create_simple_model(nbatch, nin, nout, dtype)
         variables = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES)
 
-        model_opt = tf.train.AdamOptimizer(0.0002, 0.5)  # Adam optimizer
+        model_opt = tf.train.AdamOptimizer(learning_rate, momentum)  # Adam optimizer
         # Note: Loss scaling can improve numerical stability for fp16 training
         scale_size = 128  # There is no one scale size
 
